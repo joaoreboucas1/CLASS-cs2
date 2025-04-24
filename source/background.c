@@ -545,7 +545,8 @@ int background_functions(
     /* get w_fld from dedicated function */
     class_call(background_w_fld(pba,a,&w_fld,&dw_over_da,&integral_fld), pba->error_message, pba->error_message);
     pvecback[pba->index_bg_w_fld] = w_fld;
-    pvecback[pba->index_bg_cs2_fld] = pba->cs2_fld;
+    pvecback[pba->index_bg_cs2_fld] = pba->cs2_0 * w_fld + pba->cs2_1; // pba->cs2_fld; // NOTE(JR): changing this to linear relation
+    // NOTE(JR): default values are cs2_1 = 1, cs2_0 = 0
 
     // Obsolete: at the beginning, we had here the analytic integral solution corresponding to the case w=w0+w1(1-a/a0):
     // pvecback[pba->index_bg_rho_fld] = pba->Omega0_fld * pow(pba->H0,2) / pow(a,3.*(1.+pba->w0_fld+pba->wa_fld)) * exp(3.*pba->wa_fld*(a-1.));
