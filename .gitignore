@@ -10,6 +10,7 @@ python/classy.cpp
 *.pyc
 python/build/
 *.dSYM
+*.egg
 RealSpaceInterface/cache/
 .DS_Store
 doc/manual/html
